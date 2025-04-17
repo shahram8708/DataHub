@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Management Platform</title>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f1f1f1;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+
+    .navbar {
+      background-color: #4e73df;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .navbar-brand {
+      font-weight: 700;
+      font-size: 2rem;
+      color: white;
+    }
+
+    .navbar .nav-link {
+      color: white;
+      font-weight: 500;
+      padding: 10px 15px;
+    }
+
+    .navbar .nav-link:hover {
+      color: #17a673;
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+
+    .hero-section {
+      background: linear-gradient(45deg, #4e73df, #1cc88a);
+      color: white;
+      padding: 120px 0;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-section h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    .hero-section p {
+      font-size: 1.3rem;
+      margin: 20px 0;
+      animation: fadeInUp 1.8s ease-out;
+    }
+
+    .cta-button {
+      background-color: #1cc88a;
+      padding: 15px 40px;
+      border-radius: 8px;
+      color: white;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      border: none;
+      transition: all 0.3s ease;
+      animation: fadeInUp 2s ease-out;
+    }
+
+    .cta-button:hover {
+      background-color: #17a673;
+      transform: translateY(-5px);
+    }
+
+
+    .features-section {
+      padding: 80px 0;
+      background-color: #ffffff;
+    }
+
+    .features-section h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    .features-section .feature {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeInUp 1.5s ease-out;
+      transition: all 0.3s ease;
+    }
+
+    .features-section .feature i {
+      font-size: 60px;
+      color: #4e73df;
+      margin-bottom: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .features-section .feature h4 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .features-section .feature:hover i {
+      color: #1cc88a;
+      transform: translateY(-10px);
+    }
+
+
+    .how-it-works-section {
+      padding: 80px 0;
+      background-color: #f9f9f9;
+    }
+
+    .how-it-works-section h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .step {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .step .step-number {
+      background-color: #1cc88a;
+      color: white;
+      font-size: 2rem;
+      padding: 25px;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+
+    .step .step-description {
+      flex: 1;
+      margin-left: 20px;
+    }
+
+    .step:hover .step-number {
+      background-color: #17a673;
+    }
+
+
+    .upload-section {
+      padding: 80px 0;
+    }
+
+    .upload-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .upload-container:hover {
+      transform: translateY(-10px);
+    }
+
+    .upload-container .file-icon {
+      font-size: 60px;
+      color: #4e73df;
+      margin-bottom: 20px;
+      animation: bounce 1.5s infinite;
+    }
+
+    .upload-container h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+
+    footer {
+      background-color: #4e73df;
+      color: white;
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    footer .social-icons i {
+      font-size: 1.8rem;
+      margin: 0 15px;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    footer .social-icons i:hover {
+      color: #17a673;
+    }
+
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+
+    @media (max-width: 767px) {
+      .hero-section h1 {
+        font-size: 2.5rem;
+      }
+
+      .cta-button {
+        font-size: 1rem;
+        padding: 12px 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+    <div class="container">
+
+      <a class="navbar-brand" href="#">DataHub
+      </a>
+
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#upload">Upload</a></li>
+          <li class="nav-item"><a class="nav-link" href="#view">View Database</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        </ul>
+
+
+        <a href="#upload" class="btn btn-get-started ms-3">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <style>
+    .navbar {
+      background: linear-gradient(45deg, #4e73df, #1cc88a);
+      padding: 10px 0;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand .logo {
+      width: 150px;
+    }
+
+    .navbar-nav .nav-link {
+      color: white !important;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #1cc88a !important;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .btn-get-started {
+      background-color: #1cc88a;
+      color: white;
+      padding: 10px 30px;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-get-started:hover {
+      background-color: #17a673;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 767px) {
+      .navbar-nav {
+        text-align: center;
+      }
+
+      .navbar-nav .nav-link {
+        padding: 10px 0;
+      }
+
+      .btn-get-started {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  </style>
+
+
+  <section class="hero-section d-flex align-items-center text-center" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="display-4 fw-bold">Easily Manage and Visualize Your Data</h1>
+        <p class="lead mt-3 mb-4">
+          Upload your database, explore tables, generate insights, and download data in various formats — all from one
+          intuitive platform.
+        </p>
+
+
+        <button class="btn btn-cta" onclick="document.getElementById('upload').scrollIntoView();">
+          Start Now
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+
+  <style>
+    .hero-section {
+      background: linear-gradient(135deg, #e0f7fa, #e1f5fe);
+      padding: 100px 0 60px;
+      color: #333;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .btn-cta {
+      background-color: #1cc88a;
+      color: white;
+      padding: 12px 32px;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-cta:hover {
+      background-color: #17a673;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .btn-cta {
+        font-size: 1rem;
+        padding: 10px 24px;
+      }
+
+    }
+  </style>
+
+
+  <section class="features-section py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">Key Features</h2>
+      <div class="row g-4">
+
+
+        <div class="col-md-4">
+          <div class="feature-card text-center p-4">
+            <div class="feature-icon">
+              <i class="fas fa-upload"></i>
+            </div>
+            <h4 class="mt-3">Upload Your Database</h4>
+            <p>Upload your SQLite database (.db/.sqlite3) to instantly browse all tables and data structures. No setup
+              needed.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="feature-card text-center p-4">
+            <div class="feature-icon">
+              <i class="fas fa-table"></i>
+            </div>
+            <h4 class="mt-3">Interactive Data Tables</h4>
+            <p>Explore your data in powerful, filterable tables. Sort and scroll through entries in real-time with ease.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="feature-card text-center p-4">
+            <div class="feature-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h4 class="mt-3">Search and Filter</h4>
+            <p>Quickly locate specific data using intelligent search and advanced filtering. Supports large datasets
+              with fast results.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="feature-card text-center p-4">
+            <div class="feature-icon">
+              <i class="fas fa-download"></i>
+            </div>
+            <h4 class="mt-3">Download in Multiple Formats</h4>
+            <p>Export data as CSV, JSON, or bundled ZIPs including all tables — so you can take your work offline or
+              share it easily.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="feature-card text-center p-4">
+            <div class="feature-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h4 class="mt-3">Generate Visualizations</h4>
+            <p>Create dynamic charts and visual dashboards. Spot trends and patterns using intuitive data-driven
+              graphics.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="feature-card text-center p-4">
+            <div class="feature-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h4 class="mt-3">Seamless Pagination</h4>
+            <p>Paginate through massive datasets effortlessly. Stay fast and organized even with thousands of rows.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <style>
+    .features-section {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(to bottom right, #f8fbff, #f1f5fa);
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: #0d6efd;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.2);
+      color: #198754;
+    }
+
+    .features-section h2 {
+      font-size: 2.5rem;
+    }
+
+    .feature-card h4 {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: #333;
+    }
+
+    .feature-card p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  </style>
+
+
+  <section class="how-it-works-section py-5 bg-white" id="how-it-works">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">How It Works</h2>
+      <div class="timeline">
+
+
+        <div class="timeline-step">
+          <div class="timeline-icon"><i class="fas fa-upload"></i></div>
+          <div class="timeline-content">
+            <h5>Upload Your Database</h5>
+            <p>Upload your SQLite (.db or .sqlite3) file. The platform reads the file, extracts table structures, and
+              displays data for exploration.</p>
+          </div>
+        </div>
+
+
+        <div class="timeline-step">
+          <div class="timeline-icon"><i class="fas fa-table"></i></div>
+          <div class="timeline-content">
+            <h5>Analyze and Explore Your Data</h5>
+            <p>View your data in interactive tables with full support for sorting, filtering, and exploring any table in
+              detail.</p>
+          </div>
+        </div>
+
+
+        <div class="timeline-step">
+          <div class="timeline-icon"><i class="fas fa-search"></i></div>
+          <div class="timeline-content">
+            <h5>Search, Filter, and Paginate</h5>
+            <p>Search through your data using keywords, apply advanced filters, and navigate large datasets with
+              pagination.</p>
+          </div>
+        </div>
+
+
+        <div class="timeline-step">
+          <div class="timeline-icon"><i class="fas fa-download"></i></div>
+          <div class="timeline-content">
+            <h5>Download Data in Multiple Formats</h5>
+            <p>Export individual or complete tables in CSV or JSON format, or download a ZIP file containing all data
+              and visuals.</p>
+          </div>
+        </div>
+
+
+        <div class="timeline-step">
+          <div class="timeline-icon"><i class="fas fa-chart-bar"></i></div>
+          <div class="timeline-content">
+            <h5>Generate Stunning Visualizations</h5>
+            <p>Create clear, beautiful visualizations like bar charts, pie charts, and line graphs to reveal insights
+              instantly.</p>
+          </div>
+        </div>
+
+
+        <div class="timeline-step">
+          <div class="timeline-icon"><i class="fas fa-share-alt"></i></div>
+          <div class="timeline-content">
+            <h5>Share Your Analysis</h5>
+            <p>Export your entire analysis or specific parts and share them with your team in just a few clicks.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <style>
+    .how-it-works-section {
+      background: #f8f9fa;
+      overflow-x: hidden;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+      border-left: 3px solid #0d6efd;
+    }
+
+    .timeline-step {
+      position: relative;
+      margin-bottom: 40px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .timeline-icon {
+      position: absolute;
+      left: -30px;
+      top: 0;
+      background: #0d6efd;
+      color: white;
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .timeline-step:hover .timeline-icon {
+      transform: scale(1.2);
+      background: #198754;
+    }
+
+    .timeline-content {
+      background: white;
+      padding: 20px 25px;
+      border-radius: 10px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-content:hover {
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .timeline-content h5 {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #0d6efd;
+    }
+
+    .timeline-content p {
+      font-size: 0.95rem;
+      color: #444;
+      margin: 0;
+    }
+
+
+    @media (max-width: 768px) {
+      .timeline {
+        padding-left: 20px;
+      }
+
+      .timeline-icon {
+        left: -25px;
+      }
+
+      .timeline-content {
+        padding: 18px;
+      }
+    }
+  </style>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  <div class="container mt-3">
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert" data-bs-dismiss="alert"
+      aria-label="Close" style="animation: fadeIn 0.5s ease;">
+
+
+      {% if category == 'success' %}
+      <i class="fas fa-check-circle"></i>
+      {% elif category == 'error' %}
+      <i class="fas fa-times-circle"></i>
+      {% elif category == 'info' %}
+      <i class="fas fa-info-circle"></i>
+      {% elif category == 'warning' %}
+      <i class="fas fa-exclamation-triangle"></i>
+      {% endif %}
+
+
+      <strong>{{ message }}</strong>
+
+
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+
+    <script>
+      setTimeout(function () {
+        var alert = document.querySelector('.alert');
+        if (alert) {
+          alert.classList.remove('show');
+        }
+      }, 5000); 
+    </script>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% endwith %}
+
+
+  <style>
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .alert {
+      animation: fadeIn 0.5s ease;
+    }
+
+    .alert-dismissible .btn-close {
+      background-color: transparent;
+      border: none;
+    }
+  </style>
+
+
+  <section id="upload" class="upload-section py-5">
+    <div class="container">
+      <div class="upload-container mx-auto text-center">
+        <div class="upload-icon mb-3">
+          <i class="fas fa-database fa-3x text-primary"></i>
+        </div>
+        <h3 class="mb-3">Upload Your Database or Data File</h3>
+        <p>Drag and drop your <strong>.db, .sqlite3</strong> files here or use the button below. Your file’s structure
+          and content will be auto-detected.</p>
+
+        <form method="post" enctype="multipart/form-data" onsubmit="handleUpload(event)">
+          <div class="drop-zone" id="drop-zone">
+            <i class="fas fa-cloud-upload-alt fa-2x mb-2 text-muted"></i>
+            <p>Drag & Drop your file here</p>
+            <input type="file" name="dbfile" id="file-input" accept=".db,.sqlite3,.csv,.xlsx,.json" class="form-control"
+              required hidden>
+            <button type="button" class="btn btn-outline-secondary mt-2"
+              onclick="document.getElementById('file-input').click()">Browse File</button>
+            <div class="file-preview mt-3 text-success fw-bold" id="file-preview">No file selected</div>
+          </div>
+
+          <button id="upload-btn" type="submit" class="btn btn-primary mt-4">
+            <span id="btn-text">Upload & View Data</span>
+            <span id="btn-spinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status"
+              aria-hidden="true"></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <style>
+    .upload-container {
+      max-width: 600px;
+      padding: 30px;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .drop-zone {
+      border: 2px dashed #6c757d;
+      border-radius: 10px;
+      padding: 30px;
+      background-color: #f8f9fa;
+      transition: background-color 0.3s, border-color 0.3s;
+      cursor: pointer;
+    }
+
+    .drop-zone.dragover {
+      background-color: #e9f7ef;
+      border-color: #198754;
+    }
+
+    .file-preview {
+      font-size: 0.95rem;
+      word-wrap: break-word;
+    }
+
+
+    @media (max-width: 576px) {
+      .upload-container {
+        padding: 20px;
+      }
+    }
+  </style>
+
+
+  <script>
+    const dropZone = document.getElementById("drop-zone");
+    const fileInput = document.getElementById("file-input");
+    const filePreview = document.getElementById("file-preview");
+    const uploadBtn = document.getElementById("upload-btn");
+    const btnText = document.getElementById("btn-text");
+    const btnSpinner = document.getElementById("btn-spinner");
+
+
+    dropZone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropZone.classList.add("dragover");
+    });
+
+    dropZone.addEventListener("dragleave", () => {
+      dropZone.classList.remove("dragover");
+    });
+
+    dropZone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropZone.classList.remove("dragover");
+      if (e.dataTransfer.files.length) {
+        fileInput.files = e.dataTransfer.files;
+        updateFileName(e.dataTransfer.files[0]);
+      }
+    });
+
+
+    fileInput.addEventListener("change", (e) => {
+      if (fileInput.files.length) {
+        updateFileName(fileInput.files[0]);
+      }
+    });
+
+
+    function updateFileName(file) {
+      const ext = file.name.split('.').pop().toLowerCase();
+      const icons = {
+        db: "📦",
+        sqlite3: "🗃️",
+        csv: "📄",
+        xlsx: "📊",
+        json: "🔢"
+      };
+      const icon = icons[ext] || "📁";
+      filePreview.innerHTML = `${icon} ${file.name}`;
+    }
+
+
+    function handleUpload(e) {
+      e.preventDefault();
+      uploadBtn.disabled = true;
+      btnText.textContent = "Uploading...";
+      btnSpinner.classList.remove("d-none");
+
+
+      setTimeout(() => {
+
+        e.target.submit();
+      }, 1500);
+    }
+  </script>
+
+
+  <footer class="footer-section bg-dark text-white pt-5 pb-4">
+    <div class="container text-center text-md-start">
+      <div class="row">
+
+
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold text-gradient">DataHub</h5>
+          <p>Your all-in-one platform for uploading, analyzing, and visualizing your data. Empower your decisions with
+            smart insights.</p>
+        </div>
+
+
+        <div class="col-md-4 mb-4">
+          <h6 class="text-uppercase fw-bold">Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+            <li><a href="#contact" class="footer-link">Contact Us</a></li>
+            <li><a href="#about" class="footer-link">About</a></li>
+          </ul>
+        </div>
+
+
+        <div class="col-md-4 mb-4">
+          <h6 class="text-uppercase fw-bold">Contact</h6>
+          <p>Email: <a href="mailto:support@datahub.com" class="footer-link">support@datahub.com</a></p>
+          <p>Phone: <a href="tel:+919999999999" class="footer-link">+91 9099999999</a></p>
+          <div class="social-icons mt-3">
+            <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="text-center mt-4 pt-3 border-top border-secondary">
+        <p class="mb-0">&copy; 2025 <span class="text-gradient">DataHub</span> | All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+  <style>
+    .text-gradient {
+      background: linear-gradient(90deg, #00f2fe, #4facfe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .footer-section {
+      background-color: #111;
+      color: #ccc;
+    }
+
+    .footer-link {
+      color: #aaa;
+      text-decoration: none;
+      display: block;
+      margin: 8px 0;
+      transition: all 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: #00f2fe;
+      padding-left: 5px;
+    }
+
+
+    .social-icon {
+      display: inline-block;
+      margin-right: 15px;
+      font-size: 1.4rem;
+      color: #bbb;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      color: #00f2fe;
+      transform: scale(1.2);
+    }
+
+
+    @media (max-width: 768px) {
+      .footer-section {
+        text-align: center;
+      }
+
+      .social-icon {
+        margin: 10px;
+      }
+    }
+  </style>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
